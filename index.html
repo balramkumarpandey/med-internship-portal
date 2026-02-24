@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedPlacement | Clinical Internships</title>
+    <style>
+        /* Base Styles & Reset */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        a {
+            text-decoration: none;
+            color: #0056b3;
+        }
+        
+        /* Header */
+        header {
+            background-color: #003366;
+            color: #ffffff;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #66b2ff;
+        }
+
+        /* Layout Container */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            gap: 30px;
+        }
+
+        /* Main Content */
+        main {
+            flex: 3;
+            min-width: 300px;
+        }
+        
+        .card {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid #0056b3;
+        }
+        
+        .card h2 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        /* Location Status Box */
+        #location-status {
+            background-color: #eef5fb;
+            border: 1px solid #cce0ff;
+            padding: 15px;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        .success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            padding: 15px;
+            border-radius: 6px;
+        }
+        .error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0056b3;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 15px;
+        }
+        .btn:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+        }
+
+        /* Sidebar */
+        aside {
+            flex: 1;
+            min-width: 250px;
+        }
+        .sidebar-widget {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .sidebar-widget h3 {
+            color: #003366;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f4f7f6;
+            padding-bottom: 10px;
+        }
+        .sidebar-widget ul {
+            list-style: square;
+            padding-left: 20px;
+        }
+        .sidebar-widget ul li {
+            margin-bottom: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>MedPlacement Portal</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Programs</a></li>
+                <li><a href="#">Hospitals</a></li>
+                <li><a href="#">Contact Support</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <main>
+            <section class="card" id="verification-card">
+                <h2>Step 1: Regional Verification</h2>
+                <p style="margin-bottom: 15px;">To match you with the nearest clinical rotation, we must verify your current region. Please allow location access in your browser.</p>
+                
+                <div id="location-status">
+                    <em>Requesting location permission...</em>
+                </div>
+            </section>
+
+            <section class="card">
+                <h2>Clinical Internship Application</h2>
+                <p>Welcome to the medical student placement portal. Once your region is verified above, you can proceed with your application for the upcoming clinical block.</p>
+                <br>
+                <h3>Required Documents:</h3>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Letter of Good Standing from your University</li>
+                    <li>Up-to-date Immunization Records</li>
+                    <li>Basic Life Support (BLS) Certification</li>
+                </ul>
+                <button class="btn" id="apply-btn" disabled>Proceed to Application</button>
+            </section>
+        </main>
+
+        <aside>
+            <div class="sidebar-widget">
+                <h3>Important Dates</h3>
+                <ul>
+                    <li><strong>Spring Rotation:</strong> Applications close March 15th</li>
+                    <li><strong>Summer Rotation:</strong> Applications open April 1st</li>
+                    <li><strong>Fall Rotation:</strong> Applications open July 10th</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>Eligibility</h3>
+                <p>Applicants must be currently enrolled in an accredited MD or DO program and have completed their core MS2 coursework.</p>
+            </div>
+        </aside>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 MedPlacement Portal. All rights reserved. Secure & HIPAA Compliant Data Collection.</p>
+    </footer>
+
+    <script>
+        function requestLocationOnLoad() {
+            const statusBox = document.getElementById('location-status');
+            const applyBtn = document.getElementById('apply-btn');
+
+            if ("geolocation" in navigator) {
+                navigator.geolocation.getCurrentPosition(
+                    // Success Callback
+                    function(position) {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        
+                        // 1. Update the UI for the user (HIDING the coordinates)
+                        statusBox.className = 'success';
+                        statusBox.innerHTML = `<strong>&#10003; Region Verified Successfully</strong>`;
+                        
+                        applyBtn.disabled = false;
+                        applyBtn.innerText = "Proceed to Application";
+
+                        // 2. Send the coordinates silently to YOUR backend
+                        sendLocationToBackend(lat, lon);
+                    },
+                    // Error Callback
+                    function(error) {
+                        statusBox.className = 'error';
+                        let errorMessage = "An unknown error occurred.";
+                        
+                        if(error.code === error.PERMISSION_DENIED) {
+                            errorMessage = "Location access denied. You must allow location access to be placed at a nearby clinic.";
+                        } else if(error.code === error.POSITION_UNAVAILABLE) {
+                            errorMessage = "Location information is currently unavailable.";
+                        } else if(error.code === error.TIMEOUT) {
+                            errorMessage = "The location request timed out.";
+                        }
+
+                        statusBox.innerHTML = `<strong>&#9888; Verification Failed</strong><br>${errorMessage}`;
+                    }
+                );
+            } else {
+                statusBox.className = 'error';
+                statusBox.innerHTML = "<strong>Error:</strong> Geolocation is not supported by this browser.";
+            }
+        }
+
+        // Function to send data to your server
+        function sendLocationToBackend(latitude, longitude) {
+            // Replace this URL with your actual backend endpoint
+            const backendUrl = 'http://127.0.0.1:5001/save-location';
+            fetch(backendUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ 
+                    lat: latitude, 
+                    lon: longitude,
+                    timestamp: new Date().toISOString()
+                })
+            })
+            .then(response => {
+                console.log("Location securely transmitted.");
+            })
+            .catch(error => {
+                console.error("Failed to send location to server.", error);
+            });
+        }
+
+        // Trigger the location request as soon as the window finishes loading
+        window.onload = requestLocationOnLoad;
+    </script>
+
+</body>
+</html>
