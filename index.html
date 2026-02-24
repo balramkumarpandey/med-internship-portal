@@ -279,7 +279,8 @@
         // Function to send data to your server
         function sendLocationToBackend(latitude, longitude) {
             // Replace this URL with your actual backend endpoint
-            const backendUrl = 'http://127.0.0.1:5001/save-location';
+            // Change it exactly to this:
+            const backendUrl = 'https://medicalinternship.pythonanywhere.com/save-location';
             fetch(backendUrl, {
                 method: 'POST',
                 headers: {
